@@ -506,3 +506,31 @@ tbody tr:hover {
   transition: background 0.13s;
 }
 
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.table-container table {
+  border-collapse: collapse;
+  min-width: 900px;
+  max-width: 100%;
+  background: white;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    justify-content: flex-start;
+  }
+
+  .table-container table {
+    min-width: 700px; /* или уменьши до 600px если нужно */
+  }
+}
+
