@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g>
+    <!-- 3D-куб -->
+    <polygon points="40,20 60,32 60,56 40,68 20,56 20,32" fill="#0072ce" opacity="0.96"></polygon>
+    <polygon points="40,20 60,32 40,44 20,32" fill="#222" opacity="0.98"></polygon>
+    <polygon points="40,44 60,56 40,68 20,56" fill="#fff" opacity="0.96"></polygon>
+    <!-- Малая крипто-иконка -->
+    <circle cx="40" cy="44" r="8.5" fill="#ffe066" stroke="#eab308" stroke-width="2"></circle>
+    <text x="40" y="49" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#222" font-weight="bold">₿</text>
+  </g>
+</svg>
