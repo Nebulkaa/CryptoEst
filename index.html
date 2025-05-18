@@ -133,7 +133,6 @@
     </div>
   </section>
 
-  <!-- Таблица с иконками, подсказками и ввод/вывод -->
   <section class="section-appear" id="comparison">
     <h2>Сравнение популярных криптобирж</h2>
     <div class="last-update">Данные обновлены: май 2025</div>
@@ -142,23 +141,25 @@
         <thead>
           <tr>
             <th>Биржа</th>
-            <th>Комиссии (Maker/Taker, %)</th>
+            <th>Комиссии<br>(Maker/Taker, %)</th>
             <th>Поддержка EUR</th>
             <th>Ввод/вывод</th>
             <th>KYC</th>
             <th>Фьючерсы</th>
             <th>P2P</th>
-            <th>Кол-во активов</th>
-            <th>Моб. приложение</th>
+            <th>Кол-во<br>активов</th>
+            <th>Моб.<br>приложение</th>
             <th>Инциденты и меры</th>
             <th>Защита от мошенничества</th>
             <th>Поддержка</th>
             <th>Репутация трейдеров</th>
             <th>Trustpilot</th>
-            <th>Отзывы (Reddit, Bitcointalk)</th>
+            <th>Отзывы<br>(Reddit, Bitcointalk)</th>
+            <th>Наша оценка</th>
           </tr>
         </thead>
         <tbody>
+          <!-- BINANCE -->
           <tr>
             <td>
               <img src="images/binance.png" width="32" alt="Binance"><br>Binance
@@ -169,22 +170,25 @@
             <td>0.10 / 0.10</td>
             <td>Да</td>
             <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">          
+              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;">
               <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
-              <img src="images/card.png" title="Visa/карта" style="height:18px;vertical-align:middle;">
+              <span title="P2P: Payeer, Advcash, другие"></span>
             </td>
             <td>Требуется</td>
             <td>Да</td>
             <td>Да</td>
-            <td>350+</td>
+            <td>700+</td>
             <td>Да</td>
-            <td>Взлом $40M (2019), блокировка счетов под санкции, компенсировано</td>
+            <td>Взлом $40M (2019), санкции, компенсация, Proof of Reserves</td>
             <td>ИИ-мониторинг, 2FA, адресные списки</td>
-            <td>Круглосуточно, на русском</td>
-            <td>Очень высокая</td>
+            <td>24/7, на русском</td>
+            <td>Очень высокая, топ по объёму</td>
             <td>1.5</td>
             <td>Много положительных, есть жалобы на блокировки</td>
+            <td>9.5</td>
           </tr>
+          <!-- BYBIT -->
           <tr>
             <td>
               <img src="images/bybit.png" width="32" alt="Bybit"><br>Bybit
@@ -193,23 +197,27 @@
               </div>
             </td>
             <td>0.10 / 0.10</td>
-            <td>Да (ограничено)</td>
+            <td>Ограничено</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
               <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
+              <span title="P2P: Payeer, Advcash, другие"></span>
             </td>
             <td>Желательно</td>
             <td>Да</td>
             <td>Да</td>
-            <td>250+</td>
+            <td>350+</td>
             <td>Да</td>
-            <td>Крупный взлом ($1.5 млрд, 2025), усилены меры, компенсация частичная</td>
-            <td>Двойная авторизация, антифрод</td>
+            <td>Взлом $1.5 млрд (2025), меры усилены</td>
+            <td>2FA, антифрод, чёрные списки</td>
             <td>Быстрая</td>
-            <td>Хорошая</td>
+            <td>Хорошая, растёт в СНГ</td>
             <td>3.2</td>
-            <td>Отзывы стали осторожнее, есть критика за инцидент</td>
+            <td>Есть критика за инцидент, но сервис хвалят</td>
+            <td>8.3</td>
           </tr>
+          <!-- COINBASE -->
           <tr>
             <td>
               <img src="images/coinbase.png" width="32" alt="Coinbase"><br>Coinbase
@@ -222,19 +230,22 @@
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
               <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
             </td>
             <td>Требуется</td>
             <td>Нет</td>
             <td>Нет</td>
-            <td>200+</td>
+            <td>240+</td>
             <td>Да</td>
-            <td>Без серьёзных инцидентов, жесткий контроль</td>
-            <td>Максимальный уровень, страхование</td>
+            <td>Без крупных инцидентов, страхование счетов</td>
+            <td>Страхование, 2FA, публичные отчёты</td>
             <td>Средняя</td>
-            <td>Высокая</td>
+            <td>Высокая в США/ЕС</td>
             <td>4.0</td>
             <td>Критикуют комиссии, хвалят безопасность</td>
+            <td>8.1</td>
           </tr>
+          <!-- KRAKEN -->
           <tr>
             <td>
               <img src="images/kraken.png" width="32" alt="Kraken"><br>Kraken
@@ -246,19 +257,23 @@
             <td>Да</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
             </td>
             <td>Требуется</td>
             <td>Да</td>
             <td>Нет</td>
-            <td>210+</td>
+            <td>230+</td>
             <td>Да</td>
-            <td>Без крупных инцидентов за 10+ лет</td>
-            <td>Публичная прозрачность, холодные кошельки</td>
+            <td>Без серьёзных инцидентов за 10+ лет</td>
+            <td>Публичные cold-wallets, аудит</td>
             <td>Медленная</td>
-            <td>Надёжная</td>
+            <td>Надёжная, старейшая биржа</td>
             <td>1.4</td>
-            <td>Репутация старейшей биржи</td>
+            <td>Почти всегда положительные</td>
+            <td>8.4</td>
           </tr>
+          <!-- MEXC -->
           <tr>
             <td>
               <img src="images/mexc.png" width="32" alt="MEXC"><br>MEXC
@@ -270,20 +285,21 @@
             <td>Ограничено</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
             </td>
             <td>Не требуется</td>
             <td>Да</td>
             <td>Да</td>
-            <td>300+</td>
+            <td>600+</td>
             <td>Да</td>
-            <td>Инцидентов не выявлено</td>
-            <td>Стандартная, 2FA</td>
+            <td>Серьёзных инцидентов не выявлено</td>
+            <td>2FA, proof-of-reserves, стандарт</td>
             <td>Медленная</td>
-            <td>Средняя</td>
+            <td>Средняя, Азия</td>
             <td>1.5</td>
             <td>Преимущественно положительные</td>
+            <td>7.7</td>
           </tr>
+          <!-- KUCOIN -->
           <tr>
             <td>
               <img src="images/kucoin.png" width="32" alt="KuCoin"><br>KuCoin
@@ -295,20 +311,21 @@
             <td>Ограничено</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
             </td>
             <td>Не требуется</td>
             <td>Да</td>
             <td>Да</td>
-            <td>700+</td>
+            <td>500+</td>
             <td>Да</td>
-            <td>Взлом $285M (2020), компенсировано, внедрили Proof of Reserves</td>
+            <td>Взлом $285M (2020), Proof of Reserves</td>
             <td>Быстрые заморозки, 2FA</td>
             <td>Средняя</td>
-            <td>Хорошая</td>
+            <td>Хорошая, Азия</td>
             <td>1.3</td>
-            <td>Смешанные</td>
+            <td>Смешанные, иногда жалобы на верификацию</td>
+            <td>7.9</td>
           </tr>
+          <!-- BINGX -->
           <tr>
             <td>
               <img src="images/bingx.png" width="32" alt="BingX"><br>BingX
@@ -317,23 +334,26 @@
               </div>
             </td>
             <td>0.10 / 0.10</td>
-            <td>Да (ограничено)</td>
+            <td>Ограничено</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
               <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
             </td>
             <td>Желательно</td>
             <td>Да</td>
             <td>Да</td>
             <td>300+</td>
             <td>Да</td>
-            <td>Существенных инцидентов не выявлено</td>
-            <td>Стандартная</td>
+            <td>Крупных инцидентов не выявлено</td>
+            <td>2FA, регулярный аудит</td>
             <td>Средняя</td>
-            <td>Средняя</td>
+            <td>Растёт популярность, Азия</td>
             <td>1.9</td>
             <td>Редко обсуждается</td>
+            <td>7.4</td>
           </tr>
+          <!-- BITPANDA -->
           <tr>
             <td>
               <img src="images/bitpanda.png" width="32" alt="Bitpanda"><br>Bitpanda
@@ -345,19 +365,23 @@
             <td>Да</td>
             <td>
               <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
             </td>
             <td>Требуется</td>
             <td>Нет</td>
             <td>Нет</td>
             <td>100+</td>
             <td>Да</td>
-            <td>Без инцидентов</td>
-            <td>Австрийское право, страхование</td>
+            <td>Крупных инцидентов не выявлено</td>
+            <td>Страхование, европейское регулирование</td>
             <td>Средняя</td>
-            <td>Средняя</td>
+            <td>Репутация сильнее в Австрии/Германии</td>
             <td>3.8</td>
-            <td>Преимущественно положительные</td>
+            <td>Положительные, есть жалобы на комиссии</td>
+            <td>7.2</td>
           </tr>
+          <!-- BLOFIN -->
           <tr>
             <td>
               <img src="images/blofin.png" width="32" alt="BloFin"><br>BloFin
@@ -368,19 +392,22 @@
             <td>0.10 / 0.10</td>
             <td>Нет</td>
             <td>
+              <img src="images/sepa.svg" title="Карта" style="height:18px;vertical-align:middle;">
               <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
             </td>
             <td>Не требуется</td>
             <td>Да</td>
             <td>Нет</td>
             <td>100+</td>
             <td>Да</td>
-            <td>Серьёзных инцидентов не было</td>
-            <td>Стандартная</td>
+            <td>Серьёзных инцидентов не выявлено</td>
+            <td>Стандартные меры, 2FA</td>
             <td>Средняя</td>
-            <td>Малоизвестная</td>
+            <td>Новая, малое доверие</td>
             <td>1.9</td>
             <td>Мало упоминаний</td>
+            <td>6.5</td>
           </tr>
         </tbody>
       </table>
@@ -392,6 +419,7 @@
       <a href="#" onclick="document.getElementById('popup').style.display='block'; return false;">Выбрать лучшую биржу</a>
     </div>
   </section>
+  
   
 
 
@@ -422,7 +450,7 @@
       </div>
     </div>
     <div class="disclaimer-link" style="margin-top:20px; text-align:center; font-size:13px;">
-      <a href="privacy.html" style="color:#888;">Политика конфиденциальности</a> · <a href="#disclaimer" style="color:#888;">Disclaimer</a>
+      <a href="privacy.html" style="color:#888;">Политика конфиденциальности</a> · <a href="disclaimer.html" style="color:#888;">Disclaimer</a>
     </div>
   </section>
 

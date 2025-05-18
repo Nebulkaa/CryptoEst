@@ -441,3 +441,25 @@ input:focus, textarea:focus {
   background: #005dc1;
   transform: scale(1.04) translateY(-2px);
 }
+
+/* Для Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px; /* ширина вертикального скроллбара */
+  background: #181a20; /* фон дорожки скролла */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4e5d78; /* сам ползунок */
+  border-radius: 8px;
+  border: 2px solid #222; /* рамка вокруг ползунка */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b8ab8;
+}
+
+/* Для Firefox */
+html {
+  scrollbar-color: #4e5d78 #181a20; /* thumb, track */
+  scrollbar-width: thin; /* thin/auto */
+}
