@@ -10,11 +10,8 @@
   <meta property="og:description" content="Рейтинг и сравнение бирж для жителей Эстонии. Комиссии, поддержка EUR, независимый обзор.">
   <meta property="og:image" content="images/cryptoest-logo.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml"> <!-- Правильный MIME тип для SVG -->
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml"> 
   <link rel="apple-touch-icon" href="images/logo.svg" sizes="180x180">
-
-</head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQRKS6XV5R"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,8 +19,7 @@
   gtag('js', new Date());
   gtag('config', 'G-LQRKS6XV5R');
 </script>
-
-
+</head>
 <body>
 
   <header>
@@ -138,219 +134,248 @@
   </section>
 
   <!-- Таблица с иконками, подсказками и ввод/вывод -->
-<section class="section-appear" id="comparison">
-  <h2>Сравнение популярных бирж</h2>
-  <div class="last-update">Данные обновлены: май 2025</div>
-  <div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Биржа</th>
-        <th>Maker, %<span title="Комиссия за лимитный ордер">i</span></th>
-        <th>Taker, %<span title="Комиссия за рыночный ордер">i</span></th>
-        <th>Поддержка EUR<span title="Можно ли пополнять и выводить евро без конвертации">i</span></th>
-        <th>Без верификации<span title="Доступна ли торговля без KYC/идентификации">i</span></th>
-        <th>Ввод/вывод<span title="Доступные способы пополнения и вывода">i</span></th>
-        <th>KYC<span title="Нужна ли верификация для работы с EUR или выводом">i</span></th>
-        <th>Фьючерсы <span title="Есть ли доступ к торговле деривативами/фьючерсами" class="hint">i</span></th>
-        <th>P2P <span title="Есть ли возможность P2P обмена между пользователями" class="hint">i</span></th>
-        <th>Trustpilot <span title="Средняя оценка Trustpilot" class="hint">i</span></th>
-        <th>Рейтинг</th>
-        <th>Популярность</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-  <img src="images/binance.png" width="32" alt="Binance"><br>Binance
-  <div class="open-account"><a href="https://www.binance.com/referral/mystery-box/2025-pizza-day/claim?ref=GRO_16987_H9NGM" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
+  <section class="section-appear" id="comparison">
+    <h2>Сравнение популярных криптобирж</h2>
+    <div class="last-update">Данные обновлены: май 2025</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Биржа</th>
+            <th>Комиссии (Maker/Taker, %)</th>
+            <th>Поддержка EUR</th>
+            <th>Ввод/вывод</th>
+            <th>KYC</th>
+            <th>Фьючерсы</th>
+            <th>P2P</th>
+            <th>Кол-во активов</th>
+            <th>Моб. приложение</th>
+            <th>Инциденты и меры</th>
+            <th>Защита от мошенничества</th>
+            <th>Поддержка</th>
+            <th>Репутация трейдеров</th>
+            <th>Trustpilot</th>
+            <th>Отзывы (Reddit, Bitcointalk)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="images/binance.png" width="32" alt="Binance"><br>Binance
+              <div class="open-account"><a href="https://www.binance.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.10 / 0.10</td>
+            <td>Да</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Visa/карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Требуется</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>350+</td>
+            <td>Да</td>
+            <td>Взлом $40M (2019), блокировка счетов под санкции, компенсировано</td>
+            <td>ИИ-мониторинг, 2FA, адресные списки</td>
+            <td>Круглосуточно, на русском</td>
+            <td>Очень высокая</td>
+            <td>1.5</td>
+            <td>Много положительных, есть жалобы на блокировки</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/bybit.png" width="32" alt="Bybit"><br>Bybit
+              <div class="open-account"><a href="https://www.bybit.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.10 / 0.10</td>
+            <td>Да (ограничено)</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Желательно</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>250+</td>
+            <td>Да</td>
+            <td>Крупный взлом ($1.5 млрд, 2025), усилены меры, компенсация частичная</td>
+            <td>Двойная авторизация, антифрод</td>
+            <td>Быстрая</td>
+            <td>Хорошая</td>
+            <td>3.2</td>
+            <td>Отзывы стали осторожнее, есть критика за инцидент</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/coinbase.png" width="32" alt="Coinbase"><br>Coinbase
+              <div class="open-account"><a href="https://www.coinbase.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.50 / 0.50</td>
+            <td>Да</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Требуется</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>200+</td>
+            <td>Да</td>
+            <td>Без серьёзных инцидентов, жесткий контроль</td>
+            <td>Максимальный уровень, страхование</td>
+            <td>Средняя</td>
+            <td>Высокая</td>
+            <td>4.0</td>
+            <td>Критикуют комиссии, хвалят безопасность</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/kraken.png" width="32" alt="Kraken"><br>Kraken
+              <div class="open-account"><a href="https://www.kraken.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.16 / 0.26</td>
+            <td>Да</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Требуется</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>210+</td>
+            <td>Да</td>
+            <td>Без крупных инцидентов за 10+ лет</td>
+            <td>Публичная прозрачность, холодные кошельки</td>
+            <td>Медленная</td>
+            <td>Надёжная</td>
+            <td>1.4</td>
+            <td>Репутация старейшей биржи</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/mexc.png" width="32" alt="MEXC"><br>MEXC
+              <div class="open-account"><a href="https://www.mexc.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0 / 0</td>
+            <td>Ограничено</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Не требуется</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>300+</td>
+            <td>Да</td>
+            <td>Инцидентов не выявлено</td>
+            <td>Стандартная, 2FA</td>
+            <td>Медленная</td>
+            <td>Средняя</td>
+            <td>1.5</td>
+            <td>Преимущественно положительные</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/kucoin.png" width="32" alt="KuCoin"><br>KuCoin
+              <div class="open-account"><a href="https://www.kucoin.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.10 / 0.10</td>
+            <td>Ограничено</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Не требуется</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>700+</td>
+            <td>Да</td>
+            <td>Взлом $285M (2020), компенсировано, внедрили Proof of Reserves</td>
+            <td>Быстрые заморозки, 2FA</td>
+            <td>Средняя</td>
+            <td>Хорошая</td>
+            <td>1.3</td>
+            <td>Смешанные</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/bingx.png" width="32" alt="BingX"><br>BingX
+              <div class="open-account"><a href="https://bingx.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.10 / 0.10</td>
+            <td>Да (ограничено)</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Желательно</td>
+            <td>Да</td>
+            <td>Да</td>
+            <td>300+</td>
+            <td>Да</td>
+            <td>Существенных инцидентов не выявлено</td>
+            <td>Стандартная</td>
+            <td>Средняя</td>
+            <td>Средняя</td>
+            <td>1.9</td>
+            <td>Редко обсуждается</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/bitpanda.png" width="32" alt="Bitpanda"><br>Bitpanda
+              <div class="open-account"><a href="https://www.bitpanda.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>1.49 / 1.49</td>
+            <td>Да</td>
+            <td>
+              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Требуется</td>
+            <td>Нет</td>
+            <td>Нет</td>
+            <td>100+</td>
+            <td>Да</td>
+            <td>Без инцидентов</td>
+            <td>Австрийское право, страхование</td>
+            <td>Средняя</td>
+            <td>Средняя</td>
+            <td>3.8</td>
+            <td>Преимущественно положительные</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="images/blofin.png" width="32" alt="BloFin"><br>BloFin
+              <div class="open-account"><a href="https://www.blofin.com" target="_blank" class="open-account-btn">Открыть счёт</a></div>
+            </td>
+            <td>0.10 / 0.10</td>
+            <td>Нет</td>
+            <td>
+              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;">
+            </td>
+            <td>Не требуется</td>
+            <td>Да</td>
+            <td>Нет</td>
+            <td>100+</td>
+            <td>Да</td>
+            <td>Серьёзных инцидентов не было</td>
+            <td>Стандартная</td>
+            <td>Средняя</td>
+            <td>Малоизвестная</td>
+            <td>1.9</td>
+            <td>Мало упоминаний</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trust-block" style="margin-top:12px;text-align:center;color:#888;font-size:13px;">
+      Сайт не является официальным представителем бирж. Все данные актуальны на май 2025, но всегда уточняйте условия на сайте биржи.
+    </div>
+    <div class="cta">
+      <a href="#" onclick="document.getElementById('popup').style.display='block'; return false;">Выбрать лучшую биржу</a>
+    </div>
+  </section>
+  
 
-        <td>0.10</td>
-        <td>0.10</td>
-        <td>Да</td>
-        <td>Нет</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA" style="height:19px;">
-          <img src="images/mastercard.png" title="Mastercard" style="height:19px;">
-          <img src="images/card.png" title="Visa/карта" style="height:19px;">
-        </td>
-        <td>Требуется</td>
-        <td>Да</td>
-        <td>Да</td>
-        <td>1.5</td>
-        <td>9.5/10</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>
-  <img src="images/bybit.png" width="32" alt="Bybit"><br>Bybit
-  <div class="open-account"><a href="https://www.bybit.com/invite?ref=1JZXN0" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-        <td>0.10</td>
-        <td>0.10</td>
-        <td>Да (ограничено)</td>
-        <td>Да</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA" style="height:19px;">
-          <img src="images/card.png" title="Карта" style="height:19px;">
-        </td>
-        <td>Желательно</td>
-        <td>Да</td>
-        <td>Да</td>
-        <td>3.2</td>
-        <td>8.6/10</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>
-  <img src="images/coinbase.png" width="32" alt="Coinbase"><br>Coinbase
-  <div class="open-account"><a href="https://coinbase.com/join/M3C6T7L?src=referral-link" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-        <td>0.50</td>
-        <td>0.50</td>
-        <td>Да</td>
-        <td>Нет</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA" style="height:19px;">
-          <img src="images/mastercard.png" title="Mastercard" style="height:19px;">
-        </td>
-        <td>Требуется</td>
-        <td>Нет</td>
-        <td>Нет</td>
-        <td>4.0</td>
-        <td>9.0/10</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>
-  <img src="images/kraken.png" width="32" alt="Kraken"><br>Kraken
-  <div class="open-account"><a href="https://www.kraken.com/sign-up" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-        <td>0.16</td>
-        <td>0.26</td>
-        <td>Да</td>
-        <td>Да<span title="Только торговля, ввод/вывод EUR требует KYC">*</span></td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA" style="height:19px;">
-        </td>
-        <td>Требуется</td>
-        <td>Да</td>
-        <td>Нет</td>
-        <td>1.4</td>
-        <td>8.8/10</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>
-  <img src="images/mexc.png" width="32" alt="MEXC"><br>MEXC
-  <div class="open-account"><a href="https://www.mexc.com/register" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-
-        <td>0</td>
-        <td>0</td>
-        <td>Ограничено</td>
-        <td>Да</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA (peer-to-peer, через сторонние сервисы)" style="height:19px;">
-        </td>
-        <td>Не требуется для спота</td>
-        <td>Да</td>
-        <td>Да</td>
-        <td>1.5</td>
-        <td>8.0/10</td>
-        <td>5</td>
-      </tr>
-      <tr>
-       <td>
-  <img src="images/kucoin.png" width="32" alt="KuCoin"><br>KuCoin
-  <div class="open-account"><a href="https://www.kucoin.com/signup" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-
-        <td>0.10</td>
-        <td>0.10</td>
-        <td>Ограничено</td>
-        <td>Да</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA (peer-to-peer)" style="height:19px;">
-        </td>
-        <td>Не требуется для спота</td>
-        <td>Да</td>
-        <td>Да</td>
-        <td>1.3</td>
-        <td>8.2/10</td>
-        <td>6</td>
-      </tr>
-      <tr>
-      <td>
-  <img src="images/bingx.png" width="32" alt="BingX"><br>BingX
-  <div class="open-account"><a href="https://bingx.com/ru-ru/register/" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-
-        <td>0.10</td>
-        <td>0.10</td>
-        <td>Да (ограничено)</td>
-        <td>Да</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA (через сторонние сервисы)" style="height:19px;">
-        </td>
-        <td>Желательно</td>
-        <td>Да</td>
-        <td>Да</td>
-        <td>1.9</td>
-        <td>8.4/10</td>
-        <td>7</td>
-      </tr>
-      <tr>
-       <td>
-  <img src="images/bitpanda.png" width="32" alt="Bitpanda"><br>Bitpanda
-  <div class="open-account"><a href="https://www.bitpanda.com/en" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-
-        <td>1.49</td>
-        <td>1.49</td>
-        <td>Да</td>
-        <td>Нет</td>
-        <td>
-          <img src="images/sepa.svg" title="SEPA" style="height:19px;">
-        </td>
-        <td>Требуется</td>
-        <td>Нет</td>
-        <td>Нет</td>
-        <td>3.8</td>
-        <td>8.3/10</td>
-        <td>8</td>
-      </tr>
-      <tr>
-        <td>
-  <img src="images/blofin.png" width="32" alt="BloFin"><br>BloFin
-  <div class="open-account"><a href="https://www.blofin.com/en/register" target="_blank" class="open-account-btn">Открыть счёт</a></div>
-</td>
-
-        <td>0.10</td>
-        <td>0.10</td>
-        <td>Нет</td>
-        <td>Да</td>
-        <td>
-          <img src="images/card.png" title="Карта (через сторонние сервисы)" style="height:19px;">
-        </td>
-        <td>Не требуется для спота</td>
-        <td>Да</td>
-        <td>Нет</td>
-        <td>1.9</td>
-        <td>7.5/10</td>
-        <td>9</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="trust-block" style="margin-top:12px;text-align:center;color:#888;font-size:13px;">
-    Сайт не является официальным представителем бирж. Все данные актуальны на май 2025, но всегда уточняйте условия на сайте биржи.
-  </div>
-  <div class="cta">
-    <a href="#" onclick="document.getElementById('popup').style.display='block'; return false;">Выбрать лучшую биржу</a>
-  </div>
-</section>
 
 
 
