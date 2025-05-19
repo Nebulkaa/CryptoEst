@@ -1,10 +1,34 @@
+/* ===== БАЗА И ОСНОВНЫЕ ЭЛЕМЕНТЫ ===== */
+html {
+  scrollbar-color: #4e5d78 #f5f5fa;
+  scrollbar-width: thin;
+}
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Arial', sans-serif;
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   color: #222;
+  min-height: 100vh;
+  transition: background 0.25s, color 0.25s;
 }
 
+a { color: #007bff; text-decoration: none; transition: color .15s; }
+a:hover, a:focus { color: #005dc1; }
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1em;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  border-color: #98c8ff;
+}
+
+/* ===== HEADER ===== */
 header {
   background:
     linear-gradient(120deg, rgba(60,80,130,0.92) 0%, rgba(110,130,180,0.92) 100%),
@@ -13,6 +37,7 @@ header {
   color: #fff;
   text-align: center;
   position: relative;
+  transition: background 0.3s;
 }
 .header-inner {
   opacity: 0;
@@ -22,7 +47,6 @@ header {
 @keyframes hero-fade-in {
   to { opacity: 1; transform: none; }
 }
-
 .site-logo {
   width: 76px; height: 76px;
   border-radius: 14px;
@@ -30,67 +54,85 @@ header {
   background: #fff;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
-header h1 {
-  font-size: 2.3em;
-  margin: 10px 0 6px 0;
-  letter-spacing: 0.5px;
-  font-weight: 800;
+
+/* ===== НАВИГАЦИЯ ===== */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
-header p {
-  font-size: 1.17em;
-  margin: 0;
-  line-height: 1.5;
+.main-nav a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.07em;
+  transition: color .15s, background .14s;
+  padding: 3px 6px;
+  border-radius: 7px;
+}
+.main-nav a:hover,
+.main-nav a:focus {
+  background: #f2f7ff;
+  color: #1976d2;
 }
 
+.lang-switch {
+  border: none;
+  background: #f3f5fb;
+  color: #1976d2;
+  font-weight: 500;
+  font-size: 1em;
+  border-radius: 7px;
+  padding: 5px 13px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background .13s, color .15s;
+}
+.lang-switch:hover {
+  background: #e4edfb;
+  color: #005dc1;
+}
+
+/* ===== SHAPE DIVIDER ===== */
 .shape-divider {
   margin-top: -8px;
   position: relative;
   z-index: 2;
 }
 
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 section {
   padding: 40px 20px 0 20px;
   max-width: 950px;
   margin: 0 auto;
+  transition: background 0.2s, color 0.2s;
 }
 section > h2 {
   text-align: center;
   margin-bottom: 25px;
 }
-
-.open-account {
-  margin-top: 6px;
-  min-height: 34px;
-  position: relative;
+.about {
+  max-width: 720px;
+  margin: 0 auto 36px auto;
+  padding: 0 6px;
+  font-size: 1.13em;
+  color: #455;
+  text-align: center;
 }
-.open-account a,
-.open-account-btn {
-  display: inline-block;
-  padding: 6px 16px;
-  background: #f7fafc;
-  color: #007bff;
-  border-radius: 7px;
-  font-size: 0.95em;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: 0 1px 5px rgba(0,123,255,0.04);
-  transition: background 0.18s, color 0.18s, box-shadow 0.2s, opacity 0.19s;
+.section-appear {
   opacity: 0;
-  pointer-events: none;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.19,.68,.57,1.07), transform 0.7s cubic-bezier(.19,.68,.57,1.07);
 }
-tr:hover .open-account-btn,
-td:hover .open-account-btn,
-.open-account:focus-within .open-account-btn {
+.section-appear.visible {
   opacity: 1;
-  pointer-events: auto;
-}
-.open-account a:hover,
-.open-account-btn:hover {
-  background: #007bff;
-  color: #fff;
-  box-shadow: 0 3px 16px rgba(0,123,255,0.12);
+  transform: none;
 }
 
+/* ===== БЛОКИ-КАРТОЧКИ ===== */
 .features,
 .tips,
 .faq,
@@ -112,7 +154,8 @@ td:hover .open-account-btn,
   padding: 20px;
   box-shadow: 0 1px 8px rgba(0,0,0,0.05);
   text-align: center;
-  transition: box-shadow .16s, transform .16s;
+  transition: box-shadow .16s, transform .16s, background 0.2s, color 0.2s;
+  min-width: 180px;
 }
 .feature:hover,
 .tip:hover,
@@ -132,7 +175,7 @@ td:hover .open-account-btn,
   margin-bottom: 8px;
 }
 
-/* Таблица и иконки способов ввода/вывода */
+/* ===== ТАБЛИЦА ===== */
 .table-container {
   overflow-x: auto;
   width: 100%;
@@ -143,17 +186,19 @@ td:hover .open-account-btn,
   border-collapse: collapse;
   min-width: 900px;
   max-width: 100%;
-  background: white;
+  background: #fff;
   box-shadow: 0 4px 24px rgba(60, 120, 200, 0.08);
   border-radius: 9px;
   overflow: hidden;
   margin-top: 32px;
+  transition: background 0.2s;
 }
 th, td {
   padding: 14px 8px;
   border: 1px solid #ececec;
   text-align: center;
   vertical-align: middle;
+  transition: background 0.2s, color 0.2s;
 }
 th {
   background-color: #f6f6f6;
@@ -190,20 +235,64 @@ th span[title]:hover {
   color: #1976d2;
   border-color: #b4d3fa;
 }
-
 tbody tr:hover {
   background: #f5f9ff;
   transition: background 0.13s;
 }
+.open-account {
+  margin-top: 6px;
+  min-height: 34px;
+  position: relative;
+}
+.open-account a,
+.open-account-btn {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #f7fafc;
+  color: #007bff;
+  border-radius: 7px;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 5px rgba(0,123,255,0.04);
+  transition: background 0.18s, color 0.18s, box-shadow 0.2s, opacity 0.19s;
+  opacity: 0;
+  pointer-events: none;
+}
+tr:hover .open-account-btn,
+td:hover .open-account-btn,
+.open-account:focus-within .open-account-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.open-account a:hover,
+.open-account-btn:hover {
+  background: #007bff;
+  color: #fff;
+  box-shadow: 0 3px 16px rgba(0,123,255,0.12);
+}
 
-/* Trust/SEO блок */
+/* ===== SEO и TRUST ===== */
 .trust-block {
   margin-top: 12px;
   text-align: center;
   color: #888;
   font-size: 13px;
 }
+.section-seo {
+  background: #f7fafc;
+  margin-top: 36px;
+}
+.section-seo > div {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 22px 16px 20px 16px;
+  font-size: 1em;
+  line-height: 1.7;
+  color: #3d4552;
+}
 
+/* ===== КНОПКИ, CTA ===== */
 .cta {
   text-align: center;
   margin-top: 40px;
@@ -224,85 +313,25 @@ tbody tr:hover {
   background: #005dc1;
   transform: scale(1.04) translateY(-2px);
 }
-
-.faq {
-  margin: 30px 0 0 0;
-  justify-content: center;
-}
-.faq > div {
-  min-width: 260px;
-  font-size: 1em;
-  padding: 20px;
-}
-
-footer {
-  background: #222;
+.hero-cta {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 16px 36px;
+  background: #007bff;
   color: #fff;
-  text-align: center;
-  padding: 35px 20px 20px 20px;
-  margin-top: 60px;
-  font-size: 16px;
-  border-radius: 0;
-}
-.lang-switch {
-  border: none;
-  background: #f3f5fb;
-  color: #1976d2;
-  font-weight: 500;
-  font-size: 1em;
-  border-radius: 7px;
-  padding: 5px 13px;
-  margin-left: 10px;
-  cursor: pointer;
-  transition: background .13s, color .15s;
-}
-.lang-switch:hover {
-  background: #e4edfb;
-  color: #005dc1;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  margin-top: 18px;
-  margin-bottom: 10px;
-}
-.main-nav a {
-  color: #555;
+  font-size: 1.13em;
+  border-radius: 9px;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.07em;
-  transition: color .15s;
-  padding: 3px 6px;
-  border-radius: 7px;
+  box-shadow: 0 4px 20px rgba(0,123,255,0.09);
+  transition: background .2s, transform .15s;
 }
-.main-nav a:hover,
-.main-nav a:focus {
-  background: #f2f7ff;
-  color: #1976d2;
+.hero-cta:hover {
+  background: #005dc1;
+  transform: scale(1.04) translateY(-2px);
 }
 
-.last-update {
-  text-align: right;
-  color: #789;
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-.disclaimer-link {
-  margin-top: 22px;
-  text-align: center;
-  font-size: 13px;
-}
-.disclaimer-link a {
-  color: #789;
-  text-decoration: underline dotted;
-  transition: color .18s;
-}
-.disclaimer-link a:hover {
-  color: #007bff;
-}
-
+/* ===== КНОПКА "НАВЕРХ" ===== */
 .back-to-top {
   position: fixed;
   right: 24px;
@@ -318,6 +347,7 @@ footer {
   cursor: pointer;
   opacity: 0.9;
   transition: background .15s, color .14s, transform .12s;
+  display: none;
 }
 .back-to-top:hover {
   background: #007bff;
@@ -325,14 +355,92 @@ footer {
   transform: scale(1.09);
 }
 
-.about {
-  max-width: 720px;
-  margin: 0 auto 36px auto;
-  padding: 0 6px;
-  font-size: 1.13em;
-  color: #455;
+/* ===== FOOTER ===== */
+footer {
+  background: #222;
+  color: #fff;
   text-align: center;
+  padding: 35px 20px 20px 20px;
+  margin-top: 60px;
+  font-size: 16px;
+  border-radius: 0;
 }
+.footer-links {
+  margin: 16px 0 8px 0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 18px;
+}
+.footer-x-icon {
+  background: #fff; 
+  border-radius: 5px;
+}
+.footer-contact-link {
+  color: #007bff; 
+  font-weight: 500; 
+  text-decoration: none; 
+  font-size: 1em; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 7px;
+}
+.footer-disclaimer {
+  margin-top: 10px; 
+  font-size: 13px;
+}
+
+/* ===== ПОПАП ===== */
+.popup-overlay {
+  display: none; 
+  position: fixed;
+  z-index: 1001;
+  left: 0; top: 0; 
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+}
+.popup-content {
+  background: #fff;
+  max-width: 360px;
+  margin: 90px auto 0 auto;
+  padding: 24px 20px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+}
+.popup-close {
+  position: absolute;
+  right: 15px; top: 10px;
+  font-size: 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #999;
+}
+.popup-input, .popup-textarea {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 12px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+.popup-send {
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.popup-send:hover {
+  background: #005dc1;
+}
+
+/* ===== SCROLLBARS ===== */
 body::-webkit-scrollbar {
   width: 8px;
   background: #f5f5fa;
@@ -341,12 +449,35 @@ body::-webkit-scrollbar-thumb {
   background: #e0e7ef;
   border-radius: 5px;
 }
-input:focus, textarea:focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-  border-color: #98c8ff;
+::-webkit-scrollbar {
+  width: 10px;
+  background: #181a20;
+}
+::-webkit-scrollbar-thumb {
+  background: #4e5d78;
+  border-radius: 8px;
+  border: 2px solid #222;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7b8ab8;
 }
 
+/* ===== ДИСКЛЕЙМЕР ===== */
+.disclaimer-link {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+}
+.disclaimer-link a {
+  color: #789;
+  text-decoration: underline dotted;
+  transition: color .18s;
+}
+.disclaimer-link a:hover {
+  color: #007bff;
+}
+
+/* ===== АДАПТИВ ===== */
 @media (max-width: 1020px) {
   section {
     padding: 28px 4vw 0 4vw;
@@ -356,7 +487,6 @@ input:focus, textarea:focus {
     min-width: 700px;
   }
 }
-
 @media (max-width: 900px) {
   .features,
   .faq,
@@ -387,7 +517,6 @@ input:focus, textarea:focus {
     height: 58px;
   }
 }
-
 @media (max-width: 600px) {
   section {
     padding: 10px 0 0 0;
@@ -406,60 +535,135 @@ input:focus, textarea:focus {
   .site-logo { width: 38px; height: 38px; }
   .main-nav { flex-direction: column; gap: 10px; }
 }
-
 @media (max-width: 500px) {
-  #popup > div {
+  .popup-content {
     max-width: 97vw !important;
     padding: 12px 4vw !important;
   }
 }
 
-.section-appear {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(.19,.68,.57,1.07), transform 0.7s cubic-bezier(.19,.68,.57,1.07);
+/* ===== DARK MODE ===== */
+body.dark {
+  background: #171a23 !important;
+  color: #e3e7ef !important;
 }
-.section-appear.visible {
-  opacity: 1;
-  transform: none;
+body.dark header {
+  background:
+    linear-gradient(120deg, rgba(20,28,44,0.95) 0%, rgba(38,51,89,0.94) 100%),
+    url('../images/hero.jpg') center/cover no-repeat !important;
+  color: #fff !important;
+}
+body.dark section,
+body.dark .feature,
+body.dark .tip,
+body.dark .faq > div,
+body.dark .for-who > div,
+body.dark .how-works > div,
+body.dark .table-container table {
+  background: #23283a !important;
+  color: #e3e7ef !important;
+}
+body.dark th, body.dark td {
+  border-color: #333c4e !important;
+  background: #23283a !important;
+}
+body.dark th {
+  background: #23283a !important;
+  color: #b0bad6 !important;
+}
+body.dark .site-logo {
+  background: #23283a !important;
+}
+body.dark .main-nav a {
+  color: #c9d0e7 !important;
+}
+body.dark .main-nav a:hover,
+body.dark .main-nav a:focus {
+  background: #23283a !important;
+  color: #53a5ff !important;
+}
+body.dark .back-to-top {
+  background: #23283a !important;
+  color: #53a5ff !important;
+  border-color: #23283a !important;
+}
+body.dark .back-to-top:hover {
+  background: #53a5ff !important;
+  color: #23283a !important;
+}
+body.dark footer {
+  background: #181b25 !important;
+  color: #e3e7ef !important;
+}
+body.dark .cta a,
+body.dark .how-works .hero-cta {
+  background: #23283a !important;
+  color: #53a5ff !important;
+}
+body.dark .cta a:hover,
+body.dark .how-works .hero-cta:hover {
+  background: #53a5ff !important;
+  color: #23283a !important;
+}
+body.dark .trust-block,
+body.dark .faq > div,
+body.dark .feature,
+body.dark .tip {
+  color: #bac5de !important;
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background: #334366 !important;
+}
+body.dark ::-webkit-scrollbar {
+  background: #181b25 !important;
+}
+body.dark input,
+body.dark textarea,
+body.dark .popup-content {
+  background: #21273c !important;
+  color: #e3e7ef !important;
+  border-color: #343b54 !important;
+}
+body.dark input:focus,
+body.dark textarea:focus {
+  outline: 2px solid #53a5ff !important;
+  border-color: #53a5ff !important;
+}
+body.dark .popup-send {
+  background: #23283a !important;
+  color: #53a5ff !important;
+}
+body.dark .popup-send:hover {
+  background: #53a5ff !important;
+  color: #23283a !important;
+}
+body.dark .popup-close {
+  color: #b0bad6 !important;
+}
+body.dark .disclaimer-link a {
+  color: #7686a3 !important;
+}
+body.dark .disclaimer-link a:hover {
+  color: #53a5ff !important;
+}
+body.dark .open-account a,
+body.dark .open-account-btn {
+  background: #23283a !important;
+  color: #53a5ff !important;
+  box-shadow: 0 1px 5px rgba(50,123,255,0.04) !important;
+}
+body.dark .open-account a:hover,
+body.dark .open-account-btn:hover {
+  background: #53a5ff !important;
+  color: #23283a !important;
+}
+body.dark .section-seo {
+  background: #21273c !important;
+  color: #b0bad6 !important;
 }
 
-.hero-cta {
-  display: inline-block;
-  margin-top: 26px;
-  padding: 16px 36px;
-  background: #007bff;
-  color: #fff;
-  font-size: 1.13em;
-  border-radius: 9px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0,123,255,0.09);
-  transition: background .2s, transform .15s;
-}
-.hero-cta:hover {
-  background: #005dc1;
-  transform: scale(1.04) translateY(-2px);
-}
-
-/* Для Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 10px; /* ширина вертикального скроллбара */
-  background: #181a20; /* фон дорожки скролла */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4e5d78; /* сам ползунок */
-  border-radius: 8px;
-  border: 2px solid #222; /* рамка вокруг ползунка */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #7b8ab8;
-}
-
-/* Для Firefox */
-html {
-  scrollbar-color: #4e5d78 #181a20; /* thumb, track */
-  scrollbar-width: thin; /* thin/auto */
+/* Дополнительно: если нужно затемнить svg/картинки иконок, можно добавить фильтр */
+body.dark img,
+body.dark svg {
+  filter: brightness(0.92) saturate(1.08);
 }
