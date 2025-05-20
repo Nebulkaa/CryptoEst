@@ -667,3 +667,12 @@ body.dark img,
 body.dark svg {
   filter: brightness(0.92) saturate(1.08);
 }
+
+html, body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
