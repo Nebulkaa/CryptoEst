@@ -327,6 +327,7 @@ td:hover .open-account-btn,
   transition: background .2s, transform .15s;
 }
 .hero-cta:hover {
+
   transform: scale(1.04) translateY(-2px);
 }
 
