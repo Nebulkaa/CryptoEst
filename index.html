@@ -13,13 +13,199 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml"> 
   <link rel="apple-touch-icon" href="images/logo.svg" sizes="180x180">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQRKS6XV5R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LQRKS6XV5R');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQRKS6XV5R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LQRKS6XV5R');
+  </script>
+  <style>
+    /* Дополнительные стили для новых функций */
+    .filters-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .filter-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+    
+    .filter-select, .search-input {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 14px;
+      min-width: 180px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .loading-spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      margin: 0 auto 15px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .rating-bar {
+      background: #f0f0f0;
+      border-radius: 10px;
+      height: 20px;
+      position: relative;
+      margin: 5px 0;
+      transition: background-color 0.3s ease;
+    }
+    
+    .rating-fill {
+      background: #4CAF50;
+      border-radius: 10px;
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+    
+    .rating-value {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 12px;
+      line-height: 20px;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+      display: none;
+      transition: color 0.3s ease;
+    }
+    
+    /* Анимации для плавного перехода темы */
+    body, .table-container, .feature, .tip, .filters-container {
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* Стили для темной темы */
+    body.dark {
+      background: #1a1d28;
+      color: #e4e4e4;
+    }
+    
+    body.dark .filters-container {
+      background: #23283a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    body.dark .filter-group label {
+      color: #e4e4e4;
+    }
+    
+    body.dark .filter-select, 
+    body.dark .search-input {
+      background: #2d3348;
+      border-color: #3a4158;
+      color: #e4e4e4;
+    }
+    
+    body.dark .table-container {
+      background: #23283a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    body.dark table {
+      color: #e4e4e4;
+    }
+    
+    body.dark thead {
+      background: #2d3348;
+    }
+    
+    body.dark th {
+      background: #2d3348;
+      color: #e4e4e4;
+      border-bottom: 2px solid #3a4158;
+    }
+    
+    body.dark td {
+      border-bottom: 1px solid #3a4158;
+    }
+    
+    body.dark tr:hover {
+      background: #2d3348;
+    }
+    
+    body.dark .rating-bar {
+      background: #3a4158;
+    }
+    
+    body.dark .rating-value {
+      color: #e4e4e4;
+    }
+    
+    body.dark .no-results {
+      color: #a0a0a0;
+    }
+    
+    /* Адаптивность для таблицы */
+    @media (max-width: 768px) {
+      .table-container {
+        overflow-x: auto;
+      }
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 8px 4px;
+        white-space: nowrap;
+      }
+      .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .filter-group {
+        width: 100%;
+      }
+      .filter-select, .search-input {
+        min-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <button id="toggle-theme" style="position:fixed;top:20px;right:20px;z-index:1000;padding:8px 18px;border-radius:8px;border:none;background:#23283a;color:#fff;cursor:pointer;font-size:16px;">🌙 Тёмная тема</button>
@@ -32,6 +218,7 @@
       <a class="hero-cta" href="#comparison">Сравнить биржи</a>
     </div>
   </header>
+  
   <div itemscope itemtype="https://schema.org/Organization" style="display:none">
     <meta itemprop="name" content="CoiniX">
     <meta itemprop="url" content="https://coinix.ee">
@@ -139,8 +326,60 @@
   <section class="section-appear" id="comparison">
     <h2>Сравнение популярных криптобирж</h2>
     <div class="last-update">Данные обновлены: ноябрь 2025</div>
+    
+    <!-- Фильтры и поиск -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="currency-filter">Поддержка EUR</label>
+        <select id="currency-filter" class="filter-select">
+          <option value="all">Все биржи</option>
+          <option value="yes">Только с поддержкой EUR</option>
+          <option value="limited">Ограниченная поддержка</option>
+          <option value="no">Без поддержки EUR</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="kyc-filter">Требуется KYC</label>
+        <select id="kyc-filter" class="filter-select">
+          <option value="all">Все</option>
+          <option value="required">Требуется</option>
+          <option value="optional">Желательно</option>
+          <option value="not-required">Не требуется</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="sort-by">Сортировка</label>
+        <select id="sort-by" class="filter-select">
+          <option value="rating">По рейтингу</option>
+          <option value="fee-asc">По комиссии (низкие → высокие)</option>
+          <option value="fee-desc">По комиссии (высокие → низкие)</option>
+          <option value="name">По названию (А-Я)</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="search-input">Поиск по названию</label>
+        <input type="text" id="search-input" class="search-input" placeholder="Введите название биржи">
+      </div>
+    </div>
+    
+    <!-- Индикатор загрузки -->
+    <div class="loading" id="loading">
+      <div class="loading-spinner"></div>
+      <p>Загрузка данных...</p>
+    </div>
+    
+    <!-- Сообщение, если ничего не найдено -->
+    <div class="no-results" id="no-results">
+      <h3>Биржи не найдены</h3>
+      <p>Попробуйте изменить параметры фильтрации</p>
+    </div>
+    
+    <!-- Таблица будет заполнена динамически -->
     <div class="table-container">
-      <table>
+      <table id="exchanges-table">
         <thead>
           <tr>
             <th>Биржа</th>
@@ -161,260 +400,12 @@
             <th>Наша оценка</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- BINANCE -->
-          <tr>
-            <td>
-              <img src="images/binance.png" width="32" alt="Binance" loading="lazy"><br>Binance
-              <div class="open-account">
-                <a href="https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_F7RY3" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.10 / 0.10</td>
-            <td>Да</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">          
-              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-              <span title="P2P: Payeer, Advcash, другие"></span>
-            </td>
-            <td>Требуется</td>
-            <td>Да</td>
-            <td>Да</td>
-            <td>700+</td>
-            <td>Да</td>
-            <td>Взлом $40M (2019), санкции, компенсация, Proof of Reserves</td>
-            <td>ИИ-мониторинг, 2FA, адресные списки</td>
-            <td>24/7, на русском</td>
-            <td>Очень высокая, топ по объёму</td>
-            <td>1.5</td>
-            <td>Много положительных, есть жалобы на блокировки</td>
-            <td>9.5</td>
-          </tr>
-          <!-- BYBIT -->
-          <tr>
-            <td>
-              <img src="images/bybit.png" width="32" alt="Bybit" loading="lazy"><br>Bybit
-              <div class="open-account">
-                <a href="https://partner.bybit.com/b/128783" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.10 / 0.10</td>
-            <td>Ограничено</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-              <span title="P2P: Payeer, Advcash, другие"></span>
-            </td>
-            <td>Желательно</td>
-            <td>Да</td>
-            <td>Да</td>
-            <td>350+</td>
-            <td>Да</td>
-            <td>Взлом $1.5 млрд (2025), меры усилены</td>
-            <td>2FA, антифрод, чёрные списки</td>
-            <td>Быстрая</td>
-            <td>Хорошая, растёт в СНГ</td>
-            <td>3.2</td>
-            <td>Есть критика за инцидент, но сервис хвалят</td>
-            <td>8.3</td>
-          </tr>
-          <!-- COINBASE -->
-          <tr>
-            <td>
-              <img src="images/coinbase.png" width="32" alt="Coinbase" loading="lazy"><br>Coinbase
-              <div class="open-account">
-                <a href="https://www.coinbase.com/ru/join/M3C6T7L?src=referral-link" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.50 / 0.50</td>
-            <td>Да</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Требуется</td>
-            <td>Нет</td>
-            <td>Нет</td>
-            <td>240+</td>
-            <td>Да</td>
-            <td>Без крупных инцидентов, страхование счетов</td>
-            <td>Страхование, 2FA, публичные отчёты</td>
-            <td>Средняя</td>
-            <td>Высокая в США/ЕС</td>
-            <td>4.0</td>
-            <td>Критикуют комиссии, хвалят безопасность</td>
-            <td>8.1</td>
-          </tr>
-          <!-- KRAKEN -->
-          <tr>
-            <td>
-              <img src="images/kraken.png" width="32" alt="Kraken" loading="lazy"><br>Kraken
-              <div class="open-account">
-                <a href="https://www.kraken.com/sign-up" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.16 / 0.26</td>
-            <td>Да</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Требуется</td>
-            <td>Да</td>
-            <td>Нет</td>
-            <td>230+</td>
-            <td>Да</td>
-            <td>Без серьёзных инцидентов за 10+ лет</td>
-            <td>Публичные cold-wallets, аудит</td>
-            <td>Медленная</td>
-            <td>Надёжная, старейшая биржа</td>
-            <td>1.4</td>
-            <td>Почти всегда положительные</td>
-            <td>8.4</td>
-          </tr>
-          <!-- MEXC -->
-          <tr>
-            <td>
-              <img src="images/mexc.png" width="32" alt="MEXC" loading="lazy"><br>MEXC
-              <div class="open-account">
-                <a href="https://promote.mexc.com/r/ak0InqWp" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0 / 0.05</td>
-            <td>Ограничено</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Не требуется</td>
-            <td>Да</td>
-            <td>Да</td>
-            <td>600+</td>
-            <td>Да</td>
-            <td>Серьёзных инцидентов не выявлено</td>
-            <td>2FA, proof-of-reserves, стандарт</td>
-            <td>Медленная</td>
-            <td>Средняя, Азия</td>
-            <td>1.5</td>
-            <td>Преимущественно положительные</td>
-            <td>7.7</td>
-          </tr>
-          <!-- KUCOIN -->
-          <tr>
-            <td>
-              <img src="images/kucoin.png" width="32" alt="KuCoin" loading="lazy"><br>KuCoin
-              <div class="open-account">
-                <a href="https://www.kucoin.com/r/af/r3ENE7P" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.10 / 0.10</td>
-            <td>Ограничено</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Не требуется</td>
-            <td>Да</td>
-            <td>Да</td>
-            <td>500+</td>
-            <td>Да</td>
-            <td>Взлом $285M (2020), Proof of Reserves</td>
-            <td>Быстрые заморозки, 2FA</td>
-            <td>Средняя</td>
-            <td>Хорошая, Азия</td>
-            <td>1.3</td>
-            <td>Смешанные, иногда жалобы на верификацию</td>
-            <td>7.9</td>
-          </tr>
-          <!-- BINGX -->
-          <tr>
-            <td>
-              <img src="images/bingx.png" width="32" alt="BingX" loading="lazy"><br>BingX
-              <div class="open-account">
-                <a href="https://bingx.com/en-us/register" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.10 / 0.10</td>
-            <td>Ограничено</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Желательно</td>
-            <td>Да</td>
-            <td>Да</td>
-            <td>300+</td>
-            <td>Да</td>
-            <td>Крупных инцидентов не выявлено</td>
-            <td>2FA, регулярный аудит</td>
-            <td>Средняя</td>
-            <td>Растёт популярность, Азия</td>
-            <td>1.9</td>
-            <td>Редко обсуждается</td>
-            <td>7.4</td>
-          </tr>
-          <!-- BITPANDA -->
-          <tr>
-            <td>
-              <img src="images/bitpanda.png" width="32" alt="Bitpanda" loading="lazy"><br>Bitpanda
-              <div class="open-account">
-                <a href="https://www.bitpanda.com/en" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>1.49 / 1.49</td>
-            <td>Да</td>
-            <td>
-              <img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Требуется</td>
-            <td>Нет</td>
-            <td>Нет</td>
-            <td>100+</td>
-            <td>Да</td>
-            <td>Крупных инцидентов не выявлено</td>
-            <td>Страхование, европейское регулирование</td>
-            <td>Средняя</td>
-            <td>Репутация сильнее в Австрии/Германии</td>
-            <td>3.8</td>
-            <td>Положительные, есть жалобы на комиссии</td>
-            <td>7.2</td>
-          </tr>
-          <!-- BLOFIN -->
-          <tr>
-            <td>
-              <img src="images/blofin.png" width="32" alt="BloFin" loading="lazy"><br>BloFin
-              <div class="open-account">
-                <a href="https://www.blofin.com/en/register" target="_blank" class="open-account-btn">Открыть счёт</a>
-              </div>
-            </td>
-            <td>0.10 / 0.10</td>
-            <td>Нет</td>
-            <td>
-              <img src="images/sepa.svg" title="Карта" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/card.png" title="Карта" style="height:18px;vertical-align:middle;" loading="lazy">
-              <img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">
-            </td>
-            <td>Не требуется</td>
-            <td>Да</td>
-            <td>Нет</td>
-            <td>100+</td>
-            <td>Да</td>
-            <td>Серьёзных инцидентов не выявлено</td>
-            <td>Стандартные меры, 2FA</td>
-            <td>Средняя</td>
-            <td>Новая, малое доверие</td>
-            <td>1.9</td>
-            <td>Мало упоминаний</td>
-            <td>6.5</td>
-          </tr>
+        <tbody id="exchanges-tbody">
+          <!-- Данные будут загружены через JavaScript -->
         </tbody>
       </table>
     </div>
+    
     <div class="trust-block" style="margin-top:12px;text-align:center;color:#888;font-size:13px;">
       Сайт не является официальным представителем бирж. Все данные актуальны на ноябрь 2025, но всегда уточняйте условия на сайте биржи.
     </div>
@@ -422,7 +413,6 @@
       <a href="#" onclick="document.getElementById('popup').style.display='block'; return false;">Выбрать лучшую биржу</a>
     </div>
   </section>
-  
 
   <section class="section-appear" id="faq">
     <h2>Часто задаваемые вопросы</h2>
@@ -453,13 +443,12 @@
     </div>
   </section>
 
-<!-- SEO-текст -->
-<section class="section-appear section-seo">
-  <div>
-    <b>CoiniX</b> — независимый рейтинг и сравнительный обзор криптовалютных бирж для жителей Эстонии. Мы анализируем комиссии, методы ввода/вывода (SEPA, карты, электронные платёжные системы), удобство интерфейса и поддержку EUR. Помогаем выбрать площадку для покупки, продажи и обмена биткоина и других криптовалют. Информация обновляется ежемесячно.
-  </div>
-</section>
-
+  <!-- SEO-текст -->
+  <section class="section-appear section-seo">
+    <div>
+      <b>CoiniX</b> — независимый рейтинг и сравнительный обзор криптовалютных бирж для жителей Эстонии. Мы анализируем комиссии, методы ввода/вывода (SEPA, карты, электронные платёжные системы), удобство интерфейса и поддержку EUR. Помогаем выбрать площадку для покупки, продажи и обмена биткоина и других криптовалют. Информация обновляется ежемесячно.
+    </div>
+  </section>
 
   <!-- Кнопка "Наверх" -->
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="back-to-top" title="Наверх" style="display:none;">▲</button>
@@ -470,9 +459,9 @@
       <button onclick="document.getElementById('popup').style.display='none'"
         style="position:absolute;right:15px;top:10px;font-size:22px;border:none;background:none;cursor:pointer;color:#999;">×</button>
       <h3>Связаться с нами</h3>
-      <form>
-        <input type="text" placeholder="Ваш email" style="width:100%;padding:9px;margin-bottom:12px;border-radius:7px;border:1px solid #ddd;">
-        <textarea placeholder="Сообщение" style="width:100%;padding:9px;border-radius:7px;border:1px solid #ddd;"></textarea>
+      <form id="contact-form">
+        <input type="email" placeholder="Ваш email" style="width:100%;padding:9px;margin-bottom:12px;border-radius:7px;border:1px solid #ddd;" required>
+        <textarea placeholder="Сообщение" style="width:100%;padding:9px;border-radius:7px;border:1px solid #ddd;" required></textarea>
         <button type="submit" style="margin-top:10px;padding:10px 22px;background:#007bff;color:#fff;border:none;border-radius:8px;cursor:pointer;">Отправить</button>
       </form>
     </div>
@@ -487,10 +476,10 @@
         </svg>
         Связаться
       </a>
-      <a href="https://t.me/DianaMi2002" target="_blank" rel="noopener" title="Telegram">
+      <a href="https://t.me/durov" target="_blank" rel="noopener" title="Telegram">
         <img src="images/telegram.png" width="20" alt="Telegram" loading="lazy">
       </a>
-      <a href="https://t.me/DianaMi2002" target="_blank" rel="noopener" title="Twitter">
+      <a href="https://x.com/durov" target="_blank" rel="noopener" title="Twitter">
         <img src="images/x.png" width="20" alt="Twitter" style="background:#fff; border-radius:5px;" loading="lazy">
       </a>
     </div>
@@ -501,8 +490,227 @@
   </footer>
 
   <script>
-    // Плавное появление секций, год в футере, кнопка "Наверх"
-    document.addEventListener("DOMContentLoaded", function() {
+    // Данные о биржах в формате JSON
+    const exchangesData = {
+      "exchanges": [
+        {
+          "id": "binance",
+          "name": "Binance",
+          "logo": "images/binance.png",
+          "refLink": "https://www.binance.com/referral/mystery-box/eu-rewardbox/claim?ref=GRO_18422_F7RY3",
+          "makerFee": "0.10",
+          "takerFee": "0.10",
+          "eurSupport": "Да",
+          "depositMethods": ["SEPA", "Visa", "Mastercard", "P2P"],
+          "kyc": "Требуется",
+          "futures": "Да",
+          "p2p": "Да",
+          "assetsCount": "700+",
+          "mobileApp": "Да",
+          "incidents": "Взлом $40M (2019), санкции, компенсация, Proof of Reserves",
+          "fraudProtection": "ИИ-мониторинг, 2FA, адресные списки",
+          "support": "24/7, на русском",
+          "reputation": "Очень высокая, топ по объёму",
+          "trustpilot": "1.5",
+          "reviews": "Много положительных, есть жалобы на блокировки",
+          "rating": "9.5"
+        },
+        {
+          "id": "bybit",
+          "name": "Bybit",
+          "logo": "images/bybit.png",
+          "refLink": "https://partner.bybit.com/b/128783",
+          "makerFee": "0.10",
+          "takerFee": "0.10",
+          "eurSupport": "Ограничено",
+          "depositMethods": ["SEPA", "Visa", "Mastercard", "P2P"],
+          "kyc": "Желательно",
+          "futures": "Да",
+          "p2p": "Да",
+          "assetsCount": "350+",
+          "mobileApp": "Да",
+          "incidents": "Взлом $1.5 млрд (2025), меры усилены",
+          "fraudProtection": "2FA, антифрод, чёрные списки",
+          "support": "Быстрая",
+          "reputation": "Хорошая, растёт в СНГ",
+          "trustpilot": "3.2",
+          "reviews": "Есть критика за инцидент, но сервис хвалят",
+          "rating": "8.3"
+        },
+        {
+          "id": "coinbase",
+          "name": "Coinbase",
+          "logo": "images/coinbase.png",
+          "refLink": "https://www.coinbase.com/ru/join/M3C6T7L?src=referral-link",
+          "makerFee": "0.50",
+          "takerFee": "0.50",
+          "eurSupport": "Да",
+          "depositMethods": ["SEPA", "Visa", "Mastercard"],
+          "kyc": "Требуется",
+          "futures": "Нет",
+          "p2p": "Нет",
+          "assetsCount": "240+",
+          "mobileApp": "Да",
+          "incidents": "Без крупных инцидентов, страхование счетов",
+          "fraudProtection": "Страхование, 2FA, публичные отчёты",
+          "support": "Средняя",
+          "reputation": "Высокая в США/ЕС",
+          "trustpilot": "4.0",
+          "reviews": "Критикуют комиссии, хвалят безопасность",
+          "rating": "8.1"
+        },
+        {
+          "id": "kraken",
+          "name": "Kraken",
+          "logo": "images/kraken.png",
+          "refLink": "https://www.kraken.com/sign-up",
+          "makerFee": "0.16",
+          "takerFee": "0.26",
+          "eurSupport": "Да",
+          "depositMethods": ["SEPA", "Visa", "Mastercard"],
+          "kyc": "Требуется",
+          "futures": "Да",
+          "p2p": "Нет",
+          "assetsCount": "230+",
+          "mobileApp": "Да",
+          "incidents": "Без серьёзных инцидентов за 10+ лет",
+          "fraudProtection": "Публичные cold-wallets, аудит",
+          "support": "Медленная",
+          "reputation": "Надёжная, старейшая биржа",
+          "trustpilot": "1.4",
+          "reviews": "Почти всегда положительные",
+          "rating": "8.4"
+        },
+        {
+          "id": "mexc",
+          "name": "MEXC",
+          "logo": "images/mexc.png",
+          "refLink": "https://promote.mexc.com/r/ak0InqWp",
+          "makerFee": "0",
+          "takerFee": "0.05",
+          "eurSupport": "Ограничено",
+          "depositMethods": ["SEPA"],
+          "kyc": "Не требуется",
+          "futures": "Да",
+          "p2p": "Да",
+          "assetsCount": "600+",
+          "mobileApp": "Да",
+          "incidents": "Серьёзных инцидентов не выявлено",
+          "fraudProtection": "2FA, proof-of-reserves, стандарт",
+          "support": "Медленная",
+          "reputation": "Средняя, Азия",
+          "trustpilot": "1.5",
+          "reviews": "Преимущественно положительные",
+          "rating": "7.7"
+        },
+        {
+          "id": "kucoin",
+          "name": "KuCoin",
+          "logo": "images/kucoin.png",
+          "refLink": "https://www.kucoin.com/r/af/r3ENE7P",
+          "makerFee": "0.10",
+          "takerFee": "0.10",
+          "eurSupport": "Ограничено",
+          "depositMethods": ["SEPA"],
+          "kyc": "Не требуется",
+          "futures": "Да",
+          "p2p": "Да",
+          "assetsCount": "500+",
+          "mobileApp": "Да",
+          "incidents": "Взлом $285M (2020), Proof of Reserves",
+          "fraudProtection": "Быстрые заморозки, 2FA",
+          "support": "Средняя",
+          "reputation": "Хорошая, Азия",
+          "trustpilot": "1.3",
+          "reviews": "Смешанные, иногда жалобы на верификацию",
+          "rating": "7.9"
+        },
+        {
+          "id": "bingx",
+          "name": "BingX",
+          "logo": "images/bingx.png",
+          "refLink": "https://bingx.com/en-us/register",
+          "makerFee": "0.10",
+          "takerFee": "0.10",
+          "eurSupport": "Ограничено",
+          "depositMethods": ["SEPA", "Visa", "Mastercard"],
+          "kyc": "Желательно",
+          "futures": "Да",
+          "p2p": "Да",
+          "assetsCount": "300+",
+          "mobileApp": "Да",
+          "incidents": "Крупных инцидентов не выявлено",
+          "fraudProtection": "2FA, регулярный аудит",
+          "support": "Средняя",
+          "reputation": "Растёт популярность, Азия",
+          "trustpilot": "1.9",
+          "reviews": "Редко обсуждается",
+          "rating": "7.4"
+        },
+        {
+          "id": "bitpanda",
+          "name": "Bitpanda",
+          "logo": "images/bitpanda.png",
+          "refLink": "https://www.bitpanda.com/en",
+          "makerFee": "1.49",
+          "takerFee": "1.49",
+          "eurSupport": "Да",
+          "depositMethods": ["SEPA", "Visa", "Mastercard"],
+          "kyc": "Требуется",
+          "futures": "Нет",
+          "p2p": "Нет",
+          "assetsCount": "100+",
+          "mobileApp": "Да",
+          "incidents": "Крупных инцидентов не выявлено",
+          "fraudProtection": "Страхование, европейское регулирование",
+          "support": "Средняя",
+          "reputation": "Репутация сильнее в Австрии/Германии",
+          "trustpilot": "3.8",
+          "reviews": "Положительные, есть жалобы на комиссии",
+          "rating": "7.2"
+        },
+        {
+          "id": "blofin",
+          "name": "BloFin",
+          "logo": "images/blofin.png",
+          "refLink": "https://www.blofin.com/en/register",
+          "makerFee": "0.10",
+          "takerFee": "0.10",
+          "eurSupport": "Нет",
+          "depositMethods": ["Visa", "Mastercard"],
+          "kyc": "Не требуется",
+          "futures": "Да",
+          "p2p": "Нет",
+          "assetsCount": "100+",
+          "mobileApp": "Да",
+          "incidents": "Серьёзных инцидентов не выявлено",
+          "fraudProtection": "Стандартные меры, 2FA",
+          "support": "Средняя",
+          "reputation": "Новая, малое доверие",
+          "trustpilot": "1.9",
+          "reviews": "Мало упоминаний",
+          "rating": "6.5"
+        }
+      ]
+    };
+
+    // Переменные для хранения данных и фильтров
+    let exchanges = [];
+    let filteredExchanges = [];
+    
+    // DOM элементы
+    const exchangesTbody = document.getElementById('exchanges-tbody');
+    const loadingElement = document.getElementById('loading');
+    const noResultsElement = document.getElementById('no-results');
+    const currencyFilter = document.getElementById('currency-filter');
+    const kycFilter = document.getElementById('kyc-filter');
+    const sortBy = document.getElementById('sort-by');
+    const searchInput = document.getElementById('search-input');
+    const contactForm = document.getElementById('contact-form');
+
+    // Инициализация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+      // Плавное появление секций, год в футере, кнопка "Наверх"
       const sections = document.querySelectorAll('.section-appear');
       function check() {
         sections.forEach(sec => {
@@ -524,9 +732,173 @@
         if(window.scrollY > 500) btn.style.display = 'block';
         else btn.style.display = 'none';
       });
+
+      // Загрузка данных о биржах
+      loadExchanges();
+      
+      // Настройка фильтров
+      setupFilters();
+      
+      // Настройка формы
+      setupForm();
     });
-  </script>
-  <script>
+
+    // Загрузка данных о биржах
+    function loadExchanges() {
+      loadingElement.style.display = 'block';
+      
+      // Имитация загрузки с сервера
+      setTimeout(() => {
+        exchanges = exchangesData.exchanges;
+        filteredExchanges = [...exchanges];
+        
+        renderExchangesTable();
+        
+        loadingElement.style.display = 'none';
+      }, 1000);
+    }
+
+    // Настройка фильтров
+    function setupFilters() {
+      currencyFilter.addEventListener('change', applyFilters);
+      kycFilter.addEventListener('change', applyFilters);
+      sortBy.addEventListener('change', applyFilters);
+      searchInput.addEventListener('input', applyFilters);
+    }
+
+    // Применение фильтров
+    function applyFilters() {
+      const currencyValue = currencyFilter.value;
+      const kycValue = kycFilter.value;
+      const searchValue = searchInput.value.toLowerCase();
+      const sortValue = sortBy.value;
+      
+      // Фильтрация по EUR поддержке
+      filteredExchanges = exchanges.filter(exchange => {
+        if (currencyValue === 'all') return true;
+        if (currencyValue === 'yes') return exchange.eurSupport === 'Да';
+        if (currencyValue === 'limited') return exchange.eurSupport === 'Ограничено';
+        if (currencyValue === 'no') return exchange.eurSupport === 'Нет';
+        return true;
+      });
+      
+      // Фильтрация по KYC
+      filteredExchanges = filteredExchanges.filter(exchange => {
+        if (kycValue === 'all') return true;
+        if (kycValue === 'required') return exchange.kyc === 'Требуется';
+        if (kycValue === 'optional') return exchange.kyc === 'Желательно';
+        if (kycValue === 'not-required') return exchange.kyc === 'Не требуется';
+        return true;
+      });
+      
+      // Поиск по названию
+      if (searchValue) {
+        filteredExchanges = filteredExchanges.filter(exchange => 
+          exchange.name.toLowerCase().includes(searchValue)
+        );
+      }
+      
+      // Сортировка
+      if (sortValue === 'rating') {
+        filteredExchanges.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+      } else if (sortValue === 'fee-asc') {
+        filteredExchanges.sort((a, b) => parseFloat(a.takerFee) - parseFloat(b.takerFee));
+      } else if (sortValue === 'fee-desc') {
+        filteredExchanges.sort((a, b) => parseFloat(b.takerFee) - parseFloat(a.takerFee));
+      } else if (sortValue === 'name') {
+        filteredExchanges.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      
+      renderExchangesTable();
+    }
+
+    // Отрисовка таблицы
+    function renderExchangesTable() {
+      exchangesTbody.innerHTML = '';
+      
+      if (filteredExchanges.length === 0) {
+        noResultsElement.style.display = 'block';
+        return;
+      }
+      
+      noResultsElement.style.display = 'none';
+      
+      filteredExchanges.forEach(exchange => {
+        const row = document.createElement('tr');
+        
+        // Форматирование рейтинга в виде прогресс-бара
+        const ratingPercent = (parseFloat(exchange.rating) / 10) * 100;
+        const ratingBar = `
+          <div class="rating-bar">
+            <div class="rating-fill" style="width: ${ratingPercent}%"></div>
+            <div class="rating-value">${exchange.rating}/10</div>
+          </div>
+        `;
+        
+        // Форматирование методов ввода/вывода
+        const depositMethodsHTML = exchange.depositMethods.map(method => {
+          let icon = '';
+          if (method === 'SEPA') icon = '<img src="images/sepa.svg" title="SEPA" style="height:18px;vertical-align:middle;" loading="lazy">';
+          if (method === 'Visa') icon = '<img src="images/card.png" title="Visa" style="height:18px;vertical-align:middle;" loading="lazy">';
+          if (method === 'Mastercard') icon = '<img src="images/mastercard.png" title="Mastercard" style="height:18px;vertical-align:middle;" loading="lazy">';
+          if (method === 'P2P') icon = '<span title="P2P: Payeer, Advcash, другие">P2P</span>';
+          return icon;
+        }).join(' ');
+        
+        row.innerHTML = `
+          <td>
+            <img src="${exchange.logo}" width="32" alt="${exchange.name}" loading="lazy"><br>${exchange.name}
+            <div class="open-account">
+              <a href="${exchange.refLink}" target="_blank" class="open-account-btn">Открыть счёт</a>
+            </div>
+          </td>
+          <td>${exchange.makerFee} / ${exchange.takerFee}</td>
+          <td>${exchange.eurSupport}</td>
+          <td>${depositMethodsHTML}</td>
+          <td>${exchange.kyc}</td>
+          <td>${exchange.futures}</td>
+          <td>${exchange.p2p}</td>
+          <td>${exchange.assetsCount}</td>
+          <td>${exchange.mobileApp}</td>
+          <td>${exchange.incidents}</td>
+          <td>${exchange.fraudProtection}</td>
+          <td>${exchange.support}</td>
+          <td>${exchange.reputation}</td>
+          <td>${exchange.trustpilot}</td>
+          <td>${exchange.reviews}</td>
+          <td>${ratingBar}</td>
+        `;
+        
+        exchangesTbody.appendChild(row);
+      });
+    }
+
+    // Настройка формы
+    function setupForm() {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = this.querySelector('input[type="email"]').value;
+        const message = this.querySelector('textarea').value;
+        
+        if (!email || !message) {
+          alert('Пожалуйста, заполните все поля');
+          return;
+        }
+        
+        if (!email.includes('@')) {
+          alert('Пожалуйста, введите корректный email');
+          return;
+        }
+        
+        // Имитация отправки формы
+        alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+        this.reset();
+        document.getElementById('popup').style.display = 'none';
+      });
+    }
+
+    // Темная тема
     const themeBtn = document.getElementById('toggle-theme');
     function setTheme(isDark) {
       document.body.classList.toggle('dark', isDark);
@@ -540,10 +912,6 @@
         (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
       setTheme(true);
     }
-    </script>
-    
+  </script>
 </body>
 </html>
-
-
-
